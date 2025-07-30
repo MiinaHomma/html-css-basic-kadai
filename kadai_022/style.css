@@ -1,0 +1,115 @@
+/* すべての要素の上下左右の余白を0にリセット */
+body h1 p {
+  margin: 0;
+}
+
+p a {
+  font-size: 20px;
+}
+
+/* headerのスタイル設定 */
+header {
+  margin-bottom: 20px; /* 下の余白 */
+  background-color: rgb(244, 79, 79);
+  text-align: center; /* 中の要素を中央揃え */
+}
+
+/* header内のh1の文字色を白に設定 */
+header h1 {
+  color: rgb(255, 255, 255);
+}
+
+/* main要素の余白を上下左右10pxに設定 */
+main {
+  padding: 10px;
+}
+
+/* #parentをFlexコンテナに設定し、子要素を均等に配置 */
+#parent {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* .contentsのスタイル設定 */
+.contents {
+  border: 3px solid rgb(238, 204, 204); /* 枠線：太さ3px、実線、色指定 */
+  flex-basis: 25%; /* 幅：親要素の25% */
+  padding: 10px 15px; /* 内側余白：上下10px、左右15px */
+  margin: 20px 0; /* 外側余白：上下20px、左右0 */
+  text-align: center; /* 中の要素を中央揃え */
+}
+
+/* h2のスタイル設定 */
+.contents h2 {
+  font-size: 25px;
+  border-bottom: 3px dotted rgb(236, 122, 122); /* 下線：太さ3px、点線、色指定 */
+  position: relative;
+  padding-left: 1.2em; /* ●を表示するスペース確保 */
+}
+
+/* h2の前に●マークを追加 */
+.contents h2::before {
+  content: "●";
+  color: rgb(239, 111, 139);
+  position: absolute;
+  left: 0;
+}
+
+/* .contents内の2番目のpの最初の文字を装飾 */
+.contents p:nth-of-type(2)::first-letter {
+  font-weight: bold;
+  color: rgb(97, 206, 249);
+}
+
+/* .contents内のimg要素のスタイル設定 */
+.contents img {
+  margin: 10px 0; /* 上下10px、左右0 */
+  width: 70%; /* 幅70% */
+}
+
+/* footer要素のスタイル設定 */
+footer {
+  background-color: rgb(244, 79, 79); /* 背景色 */
+  text-align: center; /* 中身を中央揃え */
+  padding: 10px 0; /* 上下に余白を追加（任意で調整） */
+}
+
+/* a要素の共通スタイル */
+footer a {
+  color: rgb(255, 255, 255); /* 通常文字色：白 */
+  text-decoration: none; /* 下線を消す（必要なら） */
+}
+
+/* 訪問済みリンク */
+footer a:visited {
+  color: rgb(193, 234, 251); /* 訪問済みリンク色 */
+}
+
+/* ホバー時（マウスが乗ったとき） */
+footer a:hover {
+  color: rgb(245, 178, 168); /* ホバー時の色 */
+}
+
+/* 画面幅768px以下で適用されるスタイル */
+@media screen and (max-width: 768px) {
+  /* h2のフォントサイズを30pxに */
+  .contents h2 {
+    font-size: 30px;
+  }
+
+  /* pのフォントサイズを25pxに */
+  .contents p {
+    font-size: 25px;
+  }
+
+  /* #parent内の要素を縦並びに変更 */
+  #parent {
+    flex-direction: column;
+    align-items: center; /* 中央揃えにしたい場合に追加 */
+  }
+
+  /* contentsの幅を100%に変更（オプション：親に合わせて広げる） */
+  .contents {
+    flex-basis: 100%;
+  }
+}
